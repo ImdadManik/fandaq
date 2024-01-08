@@ -1,0 +1,30 @@
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS builder
+WORKDIR /src
+
+COPY "fandaq.sln" "fandaq.sln"
+
+# Applications
+COPY "apps/auth-server/src/fandaq.AuthServer/fandaq.AuthServer.csproj" "apps/auth-server/src/fandaq.AuthServer/fandaq.AuthServer.csproj"
+COPY "apps/public-web/src/fandaq.PublicWeb/fandaq.PublicWeb.csproj" "apps/public-web/src/fandaq.PublicWeb/fandaq.PublicWeb.csproj"
+# Shared Projects
+COPY "shared/fandaq.DbMigrator/fandaq.DbMigrator.csproj" "shared/fandaq.DbMigrator/fandaq.DbMigrator.csproj"
+COPY "shared/fandaq.Shared.Hosting/fandaq.Shared.Hosting.csproj" "shared/fandaq.Shared.Hosting/fandaq.Shared.Hosting.csproj"
+COPY "shared/fandaq.Shared.Hosting.Gateways/fandaq.Shared.Hosting.Gateways.csproj" "shared/fandaq.Shared.Hosting.Gateways/fandaq.Shared.Hosting.Gateways.csproj"
+COPY "shared/fandaq.Shared.Hosting.Microservices/fandaq.Shared.Hosting.Microservices.csproj" "shared/fandaq.Shared.Hosting.Microservices/fandaq.Shared.Hosting.Microservices.csproj"
+COPY "shared/fandaq.Shared.Hosting.AspNetCore/fandaq.Shared.Hosting.AspNetCore.csproj" "shared/fandaq.Shared.Hosting.AspNetCore/fandaq.Shared.Hosting.AspNetCore.csproj"
+COPY "shared/fandaq.Shared.Hosting/fandaq.Shared.Hosting.csproj" "shared/fandaq.Shared.Hosting/fandaq.Shared.Hosting.csproj"
+COPY "shared/fandaq.Shared.Localization/fandaq.Shared.Localization.csproj" "shared/fandaq.Shared.Localization/fandaq.Shared.Localization.csproj"
+
+# Microservices
+COPY "services/administration/src/fandaq.AdministrationService.HttpApi.Host/fandaq.AdministrationService.HttpApi.Host.csproj" "services/administration/src/fandaq.AdministrationService.HttpApi.Host/fandaq.AdministrationService.HttpApi.Host.csproj"
+COPY "services/identity/src/fandaq.IdentityService.HttpApi.Host/fandaq.IdentityService.HttpApi.Host.csproj" "services/identity/src/fandaq.IdentityService.HttpApi.Host/fandaq.IdentityService.HttpApi.Host.csproj"
+COPY "services/saas/src/fandaq.SaasService.HttpApi.Host/fandaq.SaasService.HttpApi.Host.csproj" "services/saas/src/fandaq.SaasService.HttpApi.Host/fandaq.SaasService.HttpApi.Host.csproj"
+COPY "services/product/src/fandaq.ProductService.HttpApi.Host/fandaq.ProductService.HttpApi.Host.csproj" "services/product/src/fandaq.ProductService.HttpApi.Host/fandaq.ProductService.HttpApi.Host.csproj"
+# Gateways
+COPY "gateways/web/src/fandaq.WebGateway/fandaq.WebGateway.csproj" "gateways/web/src/fandaq.WebGateway/fandaq.WebGateway.csproj"
+COPY "gateways/web-public/src/fandaq.PublicWebGateway/fandaq.PublicWebGateway.csproj" "gateways/web-public/src/fandaq.PublicWebGateway/fandaq.PublicWebGateway.csproj"
+
+COPY "NuGet.Config" "NuGet.Config"
+
+RUN dotnet restore "fandaq.sln"

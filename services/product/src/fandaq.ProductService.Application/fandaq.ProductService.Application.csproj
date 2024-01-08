@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>fandaq.ProductService</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="8.0.1" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="8.0.1" />
+    <ProjectReference Include="..\fandaq.ProductService.Application.Contracts\fandaq.ProductService.Application.Contracts.csproj" />
+    <ProjectReference Include="..\fandaq.ProductService.Domain\fandaq.ProductService.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

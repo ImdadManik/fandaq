@@ -1,0 +1,6 @@
+config:
+  elasticsearchUrl: http://fandaq-st-elasticsearch:9200
+
+ingress:
+  host: kibana-fandaq.dev
+  tlsSecret: fandaq-tls

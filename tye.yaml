@@ -1,0 +1,66 @@
+name: fandaq
+services:
+- name: auth-server
+  project: apps/auth-server/src/fandaq.AuthServer/fandaq.AuthServer.csproj
+  bindings:
+    - protocol: https
+      port: 44322
+  env:
+    - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+    - Kestrel__Certificates__Default__Password=8bd428a6-b557-456b-9c40-f17fc462e184
+- name: administration-service
+  project: services/administration/src/fandaq.AdministrationService.HttpApi.Host/fandaq.AdministrationService.HttpApi.Host.csproj
+  bindings:
+    - protocol: https
+      port: 44367
+  env:
+    - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+    - Kestrel__Certificates__Default__Password=8bd428a6-b557-456b-9c40-f17fc462e184
+- name: identity-service
+  project: services/identity/src/fandaq.IdentityService.HttpApi.Host/fandaq.IdentityService.HttpApi.Host.csproj
+  bindings:
+    - protocol: https
+      port: 44388
+  env:
+    - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+    - Kestrel__Certificates__Default__Password=8bd428a6-b557-456b-9c40-f17fc462e184
+- name: saas-service
+  project: services/saas/src/fandaq.SaasService.HttpApi.Host/fandaq.SaasService.HttpApi.Host.csproj
+  bindings:
+    - protocol: https
+      port: 44381
+  env:
+    - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+    - Kestrel__Certificates__Default__Password=8bd428a6-b557-456b-9c40-f17fc462e184
+- name: product-service
+  project: services/product/src/fandaq.ProductService.HttpApi.Host/fandaq.ProductService.HttpApi.Host.csproj
+  bindings:
+    - protocol: https
+      port: 44361
+  env:
+    - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+    - Kestrel__Certificates__Default__Password=8bd428a6-b557-456b-9c40-f17fc462e184
+- name: web-gateway
+  project: gateways/web/src/fandaq.WebGateway/fandaq.WebGateway.csproj
+  bindings:
+    - protocol: https
+      port: 44325
+  env:
+    - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+    - Kestrel__Certificates__Default__Password=8bd428a6-b557-456b-9c40-f17fc462e184  
+- name: web-public-gateway
+  project: gateways/web-public/src/fandaq.PublicWebGateway/fandaq.PublicWebGateway.csproj
+  bindings:
+    - protocol: https
+      port: 44353
+  env:
+    - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+    - Kestrel__Certificates__Default__Password=8bd428a6-b557-456b-9c40-f17fc462e184
+- name: public-web
+  project: apps/public-web/src/fandaq.PublicWeb/fandaq.PublicWeb.csproj
+  bindings:
+    - protocol: https
+      port: 44335
+  env:
+    - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+    - Kestrel__Certificates__Default__Password=8bd428a6-b557-456b-9c40-f17fc462e184

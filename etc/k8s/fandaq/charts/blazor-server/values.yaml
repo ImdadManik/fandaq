@@ -1,0 +1,25 @@
+config:
+  selfUrl: # https://blazor-server.fandaq.dev
+  gatewayUrl: # http://fandaq-st-gateway-web
+  authServer:
+    authority: # http://fandaq-st-authserver
+    requireHttpsMetadata: # "false"
+    isOnK8s: # "true"
+    metaAddress: # http://fandaq-st-authserver
+  dotnetEnv: # 
+  redisHost: #
+  rabbitmqHost: #
+  elasticsearchUrl: #
+  stringEncryptionDefaultPassPhrase: gsKnGZ041HLL4IM8
+  AbpLicenseCode: #
+
+ingress:
+  host: # blazor-server.fandaq.dev
+  tlsSecret: fandaq-tls
+
+image:
+  repository: mycompanyname/fandaq-app-blazor-server
+  tag: latest
+  pullPolicy: IfNotPresent
+
+env: {}   

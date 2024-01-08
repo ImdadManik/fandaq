@@ -1,0 +1,54 @@
+{
+  "applications": {
+    "Docker-Dependencies": {
+      "type": "cli",
+      "workingDirectory": "../docker",
+      "startCommand": "./up.ps1",
+      "stopCommand": "./down.ps1"
+    },
+    "fandaq.AuthServer": {
+      "type": "dotnet-project",
+      "path": "../../apps/auth-server/src/fandaq.AuthServer/fandaq.AuthServer.csproj"
+    },
+    "fandaq.Blazor": {
+      "type": "dotnet-project",
+      "path": "../../apps/blazor/src/fandaq.Blazor/fandaq.Blazor.csproj"
+    },
+    "fandaq.Blazor.Server": {
+      "type": "dotnet-project",
+      "path": "../../apps/blazor/src/fandaq.Blazor.Server/fandaq.Blazor.Server.csproj"
+    },
+    "fandaq.PublicWeb": {
+      "type": "dotnet-project",
+      "path": "../../apps/public-web/src/fandaq.PublicWeb/fandaq.PublicWeb.csproj"
+    },
+    "fandaq.Web": {
+      "type": "dotnet-project",
+      "path": "../../apps/web/src/fandaq.Web/fandaq.Web.csproj"
+    },
+    "fandaq.AdministrationService.HttpApi.Host": {
+      "type": "dotnet-project",
+      "path": "../../services/administration/src/fandaq.AdministrationService.HttpApi.Host/fandaq.AdministrationService.HttpApi.Host.csproj"
+    },
+    "fandaq.IdentityService.HttpApi.Host": {
+      "type": "dotnet-project",
+      "path": "../../services/identity/src/fandaq.IdentityService.HttpApi.Host/fandaq.IdentityService.HttpApi.Host.csproj"
+    },
+    "fandaq.ProductService.HttpApi.Host": {
+      "type": "dotnet-project",
+      "path": "../../services/product/src/fandaq.ProductService.HttpApi.Host/fandaq.ProductService.HttpApi.Host.csproj"
+    },
+    "fandaq.SaasService.HttpApi.Host": {
+      "type": "dotnet-project",
+      "path": "../../services/saas/src/fandaq.SaasService.HttpApi.Host/fandaq.SaasService.HttpApi.Host.csproj"
+    },
+    "fandaq.WebGateway": {
+      "type": "dotnet-project",
+      "path": "../../gateways/web/src/fandaq.WebGateway/fandaq.WebGateway.csproj"
+    },
+    "fandaq.PublicWebGateway": {
+      "type": "dotnet-project",
+      "path": "../../gateways/web-public/src/fandaq.PublicWebGateway/fandaq.PublicWebGateway.csproj"
+    }
+  }
+}

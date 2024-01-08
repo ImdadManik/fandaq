@@ -1,0 +1,62 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "fandaq.ProductService.Domain.Shared": {
+      "path": "src/fandaq.ProductService.Domain.Shared/fandaq.ProductService.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "fandaq.ProductService.Domain": {
+      "path": "src/fandaq.ProductService.Domain/fandaq.ProductService.Domain.abppkg",
+      "folder": "src"
+    },
+    "fandaq.ProductService.Application.Contracts": {
+      "path": "src/fandaq.ProductService.Application.Contracts/fandaq.ProductService.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "fandaq.ProductService.Application": {
+      "path": "src/fandaq.ProductService.Application/fandaq.ProductService.Application.abppkg",
+      "folder": "src"
+    },
+    "fandaq.ProductService.EntityFrameworkCore": {
+      "path": "src/fandaq.ProductService.EntityFrameworkCore/fandaq.ProductService.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "fandaq.ProductService.HttpApi": {
+      "path": "src/fandaq.ProductService.HttpApi/fandaq.ProductService.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "fandaq.ProductService.HttpApi.Client": {
+      "path": "src/fandaq.ProductService.HttpApi.Client/fandaq.ProductService.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "fandaq.ProductService.HttpApi.Host": {
+      "path": "src/fandaq.ProductService.HttpApi.Host/fandaq.ProductService.HttpApi.Host.abppkg",
+      "folder": "src"
+    },
+    "fandaq.ProductService.Web": {
+      "path": "src/fandaq.ProductService.Web/fandaq.ProductService.Web.abppkg",
+      "folder": "src"
+    },
+    "fandaq.ProductService.Application.Tests": {
+      "path": "test/fandaq.ProductService.Application.Tests/fandaq.ProductService.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "fandaq.ProductService.Domain.Tests": {
+      "path": "test/fandaq.ProductService.Domain.Tests/fandaq.ProductService.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "fandaq.ProductService.EntityFrameworkCore.Tests": {
+      "path": "test/fandaq.ProductService.EntityFrameworkCore.Tests/fandaq.ProductService.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "fandaq.ProductService.TestBase": {
+      "path": "test/fandaq.ProductService.TestBase/fandaq.ProductService.TestBase.abppkg",
+      "folder": "test"
+    }
+  }
+}

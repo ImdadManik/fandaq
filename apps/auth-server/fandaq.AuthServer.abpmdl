@@ -1,0 +1,13 @@
+{
+  "folders": {
+    "items": {
+      "src": {}
+    }
+  },
+  "packages": {
+    "fandaq.AuthServer": {
+      "path": "src/fandaq.AuthServer/fandaq.AuthServer.abppkg",
+      "folder": "src"
+    }
+  }
+}

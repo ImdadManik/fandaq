@@ -1,0 +1,18 @@
+config:
+  selfUrl: # https://blazor.fandaq.dev
+  gatewayUrl: # https://gateway-web.fandaq.dev
+  authServer:
+      authority: # https://fandaq-st-authserver
+      responseType: "code"
+  AbpLicenseCode: #
+
+ingress:
+  host: # blazor.fandaq.dev
+  tlsSecret: fandaq-tls
+
+image:
+  repository: mycompanyname/fandaq-app-blazor
+  tag: latest
+  pullPolicy: IfNotPresent
+
+env: {}

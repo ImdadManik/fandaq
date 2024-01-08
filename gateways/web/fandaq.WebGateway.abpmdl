@@ -1,0 +1,13 @@
+{
+  "folders": {
+    "items": {
+      "src": {}
+    }
+  },
+  "packages": {
+    "fandaq.WebGateway": {
+      "path": "src/fandaq.WebGateway/fandaq.WebGateway.abppkg",
+      "folder": "src"
+    }
+  }
+}

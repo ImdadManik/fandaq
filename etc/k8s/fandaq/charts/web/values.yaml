@@ -1,0 +1,25 @@
+config:
+  selfUrl: # https://web.fandaq.dev
+  gatewayUrl: # http://fandaq-st-gateway-web
+  authServer:
+    authority: # https://authserver.fandaq.dev
+    requireHttpsMetadata: # "false"
+    isOnK8s: # "true"
+    metaAddress: # http://fandaq-st-authserver
+  dotnetEnv: # 
+  redisHost: #
+  rabbitmqHost: #
+  elasticsearchUrl: #
+  stringEncryptionDefaultPassPhrase: gsKnGZ041HLL4IM8
+  AbpLicenseCode: #
+
+ingress:
+  host: # web.fandaq.dev
+  tlsSecret: fandaq-tls
+
+image:
+  repository: mycompanyname/fandaq-app-web
+  tag: latest
+  pullPolicy: IfNotPresent
+
+env: {}

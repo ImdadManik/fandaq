@@ -1,0 +1,367 @@
+# auth-server sub-chart override
+authserver:
+  config:
+    selfUrl: https://authserver.fandaq.dev
+    corsOrigins: https://angular.fandaq.dev,https://blazor.fandaq.dev,https://gateway-web.fandaq.dev,https://gateway-public.fandaq.dev,https://identity.fandaq.dev,https://administration.fandaq.dev,https://saas.fandaq.dev,https://product.fandaq.dev
+    allowedRedirectUrls: https://angular.fandaq.dev,http://angular.fandaq.dev,https://blazor.fandaq.dev,http://blazor.fandaq.dev,https://blazor.fandaq.dev,https://blazor-server.fandaq.dev,https://web.fandaq.dev
+    disablePii: "false"
+    identityService:
+      connString: "Server=fandaq-st-sqldb,1433;Database=fandaq_Identity;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+    administrationService:
+      connString: "Server=fandaq-st-sqldb,1433;Database=fandaq_Administration;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+    saasService:
+      connString: "Server=fandaq-st-sqldb,1433;Database=fandaq_Saas;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+    authServer:
+      authority: https://authserver.fandaq.dev
+      requireHttpsMetadata: "false"
+      swaggerClientId: WebGateway_Swagger
+    dotnetEnv: Staging
+    redisHost: fandaq-st-redis
+    rabbitmqHost: fandaq-st-rabbitmq
+    elasticsearchUrl: http://fandaq-st-elasticsearch
+  ingress:
+    host: authserver.fandaq.dev
+  image:
+    repository: mycompanyname/fandaq-app-authserver
+    tag: latest
+
+# identity-service sub-chart override
+identity:
+  config:
+    selfUrl: https://identity.fandaq.dev
+    corsOrigins: https://gateway-web.fandaq.dev
+    connectionStrings:
+      identityService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Identity;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+      administrationService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Administration;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+      saasService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Saas;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+    authServer:
+      authority: http://fandaq-st-authserver
+      requireHttpsMetadata: "false"
+      metadataAddress: https://authserver.fandaq.dev
+      swaggerClientId: WebGateway_Swagger
+    dotnetEnv: Staging
+    redisHost: fandaq-st-redis
+    rabbitmqHost: fandaq-st-rabbitmq
+    elasticsearchUrl: http://fandaq-st-elasticsearch
+  openIdDict: #Seed applications and resources
+    applications:
+      authServerRootUrl: https://authserver.fandaq.dev
+      angularRootUrl: https://angular.fandaq.dev
+      webRootUrl: https://web.fandaq.dev
+      blazorRootUrl: https://blazor.fandaq.dev
+      blazorServerRootUrl: https://blazor-server.fandaq.dev
+      publicWebRootUrl: https://fandaq.dev
+      webGatewayRootUrl: https://gateway-web.fandaq.dev
+      publicWebGatewayRootUrl: https://gateway-public.fandaq.dev
+    resources:  
+      accountServiceRootUrl: https://authserver.fandaq.dev
+      administrationServiceRootUrl: https://administration.fandaq.dev
+      identityServiceRootUrl: https://identity.fandaq.dev
+      saasServiceRootUrl: https://saas.fandaq.dev
+      productServiceRootUrl: https://product.fandaq.dev
+  ingress:
+    host: identity.fandaq.dev
+  image:
+    repository: mycompanyname/fandaq-service-identity
+    tag: latest
+
+# administration-service sub-chart override
+administration:
+  config:
+    selfUrl: https://administration.fandaq.dev
+    corsOrigins: https://gateway-web.fandaq.dev,https://gateway-public.fandaq.dev
+    connectionStrings:
+      administrationService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Administration;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+      saasService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Saas;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"    
+    authServer:
+      authority: http://fandaq-st-authserver
+      requireHttpsMetadata: "false"
+      metadataAddress: https://authserver.fandaq.dev
+      swaggerClientId: WebGateway_Swagger
+    remoteServices:
+      abpIdentityBaseUrl: http://fandaq-st-identity
+      useCurrentToken: "false"   
+    dotnetEnv: Staging
+    redisHost: fandaq-st-redis
+    rabbitmqHost: fandaq-st-rabbitmq
+    elasticsearchUrl: http://fandaq-st-elasticsearch
+  synchedCommunication: # Used for server-to-server (client-credentials) communication with identityService for user permissions
+    authority: http://fandaq-st-authserver
+    requireHttps: "false"
+    validateIssuerName: "false"
+    validateEndpoints: "false"
+  ingress:
+    host: administration.fandaq.dev
+  image:
+    repository: mycompanyname/fandaq-service-administration
+    tag: latest
+
+# saas-service sub-chart override
+saas:
+  config:
+    selfUrl: https://saas.fandaq.dev
+    corsOrigins: https://gateway-web.fandaq.dev
+    connectionStrings:
+      administrationService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Administration;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+      saasService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Saas;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+    authServer:
+      authority: http://fandaq-st-authserver
+      requireHttpsMetadata: "false"
+      metadataAddress: https://authserver.fandaq.dev
+      swaggerClientId: WebGateway_Swagger
+    dotnetEnv: Staging
+    redisHost: fandaq-st-redis
+    rabbitmqHost: fandaq-st-rabbitmq
+    elasticsearchUrl: http://fandaq-st-elasticsearch
+  ingress:
+    host: saas.fandaq.dev
+  image:
+    repository: mycompanyname/fandaq-service-saas
+    tag: latest  
+
+# product-service sub-chart override
+product:
+  config:
+    selfUrl: https://product.fandaq.dev
+    corsOrigins: https://gateway-web.fandaq.dev,https://gateway-public.fandaq.dev
+    connectionStrings:
+      productService: "Server=fandaq-st-sqldb,1433;Database=fandaq_ProductService;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+      administrationService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Administration;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+      saasService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Saas;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+    authServer:
+      authority: http://fandaq-st-authserver
+      requireHttpsMetadata: "false"
+      metadataAddress: https://authserver.fandaq.dev
+      swaggerClientId: WebGateway_Swagger
+    dotnetEnv: Staging
+    redisHost: fandaq-st-redis
+    rabbitmqHost: fandaq-st-rabbitmq
+    elasticsearchUrl: http://fandaq-st-elasticsearch
+  ingress:
+    host: product.fandaq.dev
+  image:
+    repository: mycompanyname/fandaq-service-product
+    tag: latest
+
+# gateway-web sub-chart override
+gateway-web:
+  config:
+    selfUrl: https://gateway-web.fandaq.dev
+    corsOrigins: https://angular.fandaq.dev,https://blazor.fandaq.dev
+    authServer:
+      authority: http://fandaq-st-authserver
+      requireHttpsMetadata: "false"
+      metadataAddress: https://authserver.fandaq.dev
+      swaggerClientId: WebGateway_Swagger      
+    dotnetEnv: Staging
+    redisHost: fandaq-st-redis
+    rabbitmqHost: fandaq-st-rabbitmq
+    elasticsearchUrl: http://fandaq-st-elasticsearch
+  reRoutes:
+    accountService:
+      url: http://fandaq-st-authserver
+    saasService:
+      url: http://fandaq-st-saas
+    administrationService:
+      url: http://fandaq-st-administration
+    identityService:
+      url: http://fandaq-st-identity
+    productService:
+      url: http://fandaq-st-product
+  ingress:
+    host: gateway-web.fandaq.dev
+  image:
+    repository: mycompanyname/fandaq-gateway-web
+    tag: latest
+    pullPolicy: IfNotPresent
+
+# gateway-web-public sub-chart override
+gateway-web-public:
+  config:
+    selfUrl: https://gateway-public.fandaq.dev
+    authServer:
+      authority: http://fandaq-st-authserver
+      requireHttpsMetadata: "false"
+      metadataAddress: https://authserver.fandaq.dev
+      swaggerClientId: WebGateway_Swagger      
+    dotnetEnv: Staging 
+    redisHost: fandaq-st-redis
+    rabbitmqHost: fandaq-st-rabbitmq
+    elasticsearchUrl: http://fandaq-st-elasticsearch
+  reRoutes:
+    accountService:
+      url: http://fandaq-st-authserver
+    saasService:
+      url: http://fandaq-st-saas
+    administrationService:
+      url: http://fandaq-st-administration
+    productService:
+      url: http://fandaq-st-product  
+  ingress:
+    host: gateway-public.fandaq.dev
+    tlsSecret: fandaq-tls
+  image:
+    repository: mycompanyname/fandaq-gateway-web-public
+    tag: latest
+    pullPolicy: IfNotPresent
+
+kibana:
+  config:
+    elasticsearchUrl: http://fandaq-st-elasticsearch:9200
+  ingress:
+    host: kibana.fandaq.dev
+    tlsSecret: fandaq-tls
+
+# dbmigrator sub-chart override
+dbmigrator:
+  config:
+    connectionStrings:
+      identityService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Identity;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+      administrationService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Administration;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+      saasService: "Server=fandaq-st-sqldb,1433;Database=fandaq_Saas;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+      productService: "Server=fandaq-st-sqldb,1433;Database=fandaq_ProductService;User Id=sa;password=myPassw@rd;TrustServerCertificate=True"
+    dotnetEnv: Staging
+    elasticsearchUrl: http://fandaq-st-elasticsearch
+    redisHost: fandaq-st-redis
+  openIdDict:
+    applications:
+      authServerRootUrl: https://authserver.fandaq.dev
+      angularRootUrl: https://angular.fandaq.dev
+      webRootUrl: https://web.fandaq.dev
+      blazorRootUrl: https://blazor.fandaq.dev
+      blazorServerRootUrl: https://blazor-server.fandaq.dev
+      publicWebRootUrl: https://fandaq.dev
+      webGatewayRootUrl: https://gateway-web.fandaq.dev
+      publicWebGatewayRootUrl: https://gateway-public.fandaq.dev
+    resources:  
+      accountServiceRootUrl: https://authserver.fandaq.dev
+      administrationServiceRootUrl: https://administration.fandaq.dev
+      identityServiceRootUrl: https://identity.fandaq.dev
+      saasServiceRootUrl: https://saas.fandaq.dev
+      productServiceRootUrl: https://product.fandaq.dev
+  image:
+    repository: mycompanyname/fandaq-db-migrator
+    tag: latest
+    pullPolicy: IfNotPresent  
+
+# Public Web application sub-chart override
+publicweb:
+  config:
+    selfUrl: https://fandaq.dev
+    gatewayUrl: http://fandaq-st-gateway-web-public
+    authServer:
+      authority: https://authserver.fandaq.dev # should be domain on production (https://auth.mydomain.com)
+      requireHttpsMetadata: "false"
+      isOnK8s: "true"
+      metaAddress: http://fandaq-st-authserver # should be container on production (http://fandaq-az-authserver)
+    dotnetEnv: Staging 
+    redisHost: fandaq-st-redis
+    rabbitmqHost: fandaq-st-rabbitmq
+    elasticsearchUrl: http://fandaq-st-elasticsearch
+  ingress:
+    host: fandaq.dev
+    tlsSecret: fandaq-tls
+  image:
+    repository: mycompanyname/fandaq-app-public-web
+    tag: latest
+    pullPolicy: IfNotPresent
+# Angular back-office application sub-chart override
+angular:
+  config:
+    selfUrl: https://angular.fandaq.dev
+    gatewayUrl: https://gateway-web.fandaq.dev
+    authServer:
+      authority: https://authserver.fandaq.dev
+      requireHttpsMetadata: "false"
+      responseType: "code"
+      strictDiscoveryDocumentValidation: false
+      skipIssuerCheck: true
+  ingress:
+    host: angular.fandaq.dev
+    tlsSecret: fandaq-tls
+  image:
+    repository: mycompanyname/fandaq-app-angular
+    tag: latest
+    pullPolicy: IfNotPresent
+# Default values for fandaq.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,13 @@
+{
+  "folders": {
+    "items": {
+      "src": {}
+    }
+  },
+  "packages": {
+    "fandaq.PublicWeb": {
+      "path": "src/fandaq.PublicWeb/fandaq.PublicWeb.abppkg",
+      "folder": "src"
+    }
+  }
+}

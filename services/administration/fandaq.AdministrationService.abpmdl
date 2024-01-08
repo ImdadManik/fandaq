@@ -1,0 +1,58 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "fandaq.AdministrationService.HttpApi": {
+      "path": "src/fandaq.AdministrationService.HttpApi/fandaq.AdministrationService.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "fandaq.AdministrationService.Application.Contracts": {
+      "path": "src/fandaq.AdministrationService.Application.Contracts/fandaq.AdministrationService.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "fandaq.AdministrationService.Application": {
+      "path": "src/fandaq.AdministrationService.Application/fandaq.AdministrationService.Application.abppkg",
+      "folder": "src"
+    },
+    "fandaq.AdministrationService.Domain.Shared": {
+      "path": "src/fandaq.AdministrationService.Domain.Shared/fandaq.AdministrationService.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "fandaq.AdministrationService.Domain": {
+      "path": "src/fandaq.AdministrationService.Domain/fandaq.AdministrationService.Domain.abppkg",
+      "folder": "src"
+    },
+    "fandaq.AdministrationService.EntityFrameworkCore": {
+      "path": "src/fandaq.AdministrationService.EntityFrameworkCore/fandaq.AdministrationService.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "fandaq.AdministrationService.HttpApi.Client": {
+      "path": "src/fandaq.AdministrationService.HttpApi.Client/fandaq.AdministrationService.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "fandaq.AdministrationService.HttpApi.Host": {
+      "path": "src/fandaq.AdministrationService.HttpApi.Host/fandaq.AdministrationService.HttpApi.Host.abppkg",
+      "folder": "src"
+    },
+    "fandaq.AdministrationService.TestBase": {
+      "path": "test/fandaq.AdministrationService.TestBase/fandaq.AdministrationService.TestBase.abppkg",
+      "folder": "test"
+    },
+    "fandaq.AdministrationService.Domain.Tests": {
+      "path": "test/fandaq.AdministrationService.Domain.Tests/fandaq.AdministrationService.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "fandaq.AdministrationService.EntityFrameworkCore.Tests": {
+      "path": "test/fandaq.AdministrationService.EntityFrameworkCore.Tests/fandaq.AdministrationService.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "fandaq.AdministrationService.Application.Tests": {
+      "path": "test/fandaq.AdministrationService.Application.Tests/fandaq.AdministrationService.Application.Tests.abppkg",
+      "folder": "test"
+    }
+  }
+}

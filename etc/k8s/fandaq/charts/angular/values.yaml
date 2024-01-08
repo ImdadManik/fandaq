@@ -1,0 +1,21 @@
+config:
+  selfUrl: # https://angular.fandaq.dev
+  gatewayUrl: # https://gateway-web.fandaq.dev
+  authServer:
+      authority: # https://authserver.fandaq.dev
+      requireHttpsMetadata: # false
+      responseType: "code"
+      strictDiscoveryDocumentValidation: false
+      skipIssuerCheck: true
+  AbpLicenseCode: #
+
+ingress:
+  host: # angular.fandaq.dev
+  tlsSecret: fandaq-tls
+
+image:
+  repository: mycompanyname/fandaq-app-angular
+  tag: latest
+  pullPolicy: IfNotPresent
+
+env: {}

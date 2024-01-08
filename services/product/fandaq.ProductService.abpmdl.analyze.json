@@ -1,0 +1,169 @@
+{
+  "folders": {
+    "src": {},
+    "test": {}
+  },
+  "packages": {
+    "fandaq.ProductService.Domain.Shared": {
+      "type": "dotnet-project",
+      "path": "src/fandaq.ProductService.Domain.Shared/fandaq.ProductService.Domain.Shared.csproj",
+      "folder": "src",
+      "includes": {
+        "lib.domain.shared": {}
+      }      
+    },
+    "fandaq.ProductService.Domain": {
+      "type": "dotnet-project",
+      "path": "src/fandaq.ProductService.Domain/fandaq.ProductService.Domain.csproj",
+      "folder": "src",
+      "includes": {
+        "lib.domain": {}
+      },
+      "contents": {
+        "aggregates": {
+          "fandaq.ProductService.Products.Product": {
+            "keyType": "Guid",
+            "summary": "Represents a product.",
+            "collectionProperties": {},
+            "navigationProperties": {}
+          } 
+        },
+        "repositoryInterfaces": {
+          "fandaq.ProductService.Products.IProductRepository": {
+            "entity": {
+              "type": "fandaq.ProductService.Products.Product",
+              "package": "fandaq.ProductService.Domain"
+            }
+          }
+        }
+      }
+    },
+    "fandaq.ProductService.Application.Contracts": {
+      "type": "dotnet-project",
+      "path": "src/fandaq.ProductService.Application.Contracts/fandaq.ProductService.Application.Contracts.csproj",
+      "folder": "src",
+      "includes": {
+        "lib.application.contracts": {}
+      }
+    },
+    "fandaq.ProductService.Application": {
+      "type": "dotnet-project",
+      "path": "src/fandaq.ProductService.Application/fandaq.ProductService.Application.csproj",
+      "folder": "src",
+      "includes": {
+        "lib.application": {}
+      },
+      "contents": {
+        "applicationServices": {
+          "fandaq.ProductService.ProductAppService": {}
+        }
+      }
+    },
+    "fandaq.ProductService.EntityFrameworkCore": {
+      "type": "dotnet-project",
+      "path": "src/fandaq.ProductService.EntityFrameworkCore/fandaq.ProductService.EntityFrameworkCore.csproj",
+      "folder": "src",
+      "includes": {
+        "lib.ef": {}
+      },
+      "contents": {
+        "efDbContexts": {
+          "fandaq.ProductService.EntityFrameworkCore.ProductServiceDbContext": {
+            "entities": {
+              "fandaq.ProductService.Products.Product": {
+                "package": "fandaq.ProductService.Domain",
+                "dbSetPropertyOnDbContext": "Products",
+                "databaseTable": "Products" 
+              }
+            }
+          }
+        }
+      }
+    },
+    "fandaq.ProductService.HttpApi": {
+      "type": "dotnet-project",
+      "path": "src/fandaq.ProductService.HttpApi/fandaq.ProductService.HttpApi.csproj",
+      "folder": "src",
+      "includes": {
+        "lib.http-api": {}
+      },
+      "contents": {
+        "controllers": {
+          "fandaq.ProductService.Products.ProductController": {},
+          "fandaq.ProductService.Products.ProductPublicController": {}
+        }
+      }
+    },
+    "fandaq.ProductService.HttpApi.Client": {
+      "type": "dotnet-project",
+      "path": "src/fandaq.ProductService.HttpApi.Client/fandaq.ProductService.HttpApi.Client.csproj",
+      "folder": "src",
+      "includes": {
+        "lib.http-api-client": {}
+      }
+    },
+    "fandaq.ProductService.Web": {
+      "type": "dotnet-project",
+      "path": "src/fandaq.ProductService.Web/fandaq.ProductService.Web.csproj",
+      "folder": "src",
+      "includes": {
+        "lib.ui.mvc": {}
+      },
+      "contents": {
+        "mvcPages": {
+          "fandaq.ProductService.Web.Pages.Products.Index.cshtml": {},
+          "fandaq.ProductService.Web.Pages.Products.CreateModal.cshtml": {},
+          "fandaq.ProductService.Web.Pages.Products.EditModal.cshtml": {}
+        }
+      }
+    },
+    "fandaq.ProductService.Blazor": {
+      "type": "dotnet-project",
+      "path": "src/fandaq.ProductService.Blazor/fandaq.ProductService.Blazor.csproj",
+      "folder": "src",
+      "includes": {
+        "lib.ui.blazor": {}
+      }
+    },
+    "fandaq.ProductService.HttpApi.Host": {
+      "type": "dotnet-project",
+      "path": "src/fandaq.ProductService.HttpApi.Host/fandaq.ProductService.HttpApi.Host.csproj",
+      "folder": "src",
+      "includes": {
+        "host.http-api": {}
+      }
+    },
+    "fandaq.ProductService.TestBase": {
+      "type": "dotnet-project",
+      "path": "test/fandaq.ProductService.TestBase/fandaq.ProductService.TestBase.csproj",
+      "folder": "test",
+      "includes": {
+        "lib.test": {}
+      }
+    },
+    "fandaq.ProductService.Domain.Tests": {
+      "type": "dotnet-project",
+      "path": "test/fandaq.ProductService.Domain.Tests/fandaq.ProductService.Domain.Tests.csproj",
+      "folder": "test",
+      "includes": {
+        "lib.test": {}
+      }
+    },
+    "fandaq.ProductService.EntityFrameworkCore.Tests": {
+      "type": "dotnet-project",
+      "path": "test/fandaq.ProductService.EntityFrameworkCore.Tests/fandaq.ProductService.EntityFrameworkCore.Tests.csproj",
+      "folder": "test",
+      "includes": {
+        "lib.test": {}
+      }
+    },
+    "fandaq.ProductService.Application.Tests": {
+      "type": "dotnet-project",
+      "path": "test/fandaq.ProductService.Application.Tests/fandaq.ProductService.Application.Tests.csproj",
+      "folder": "test",
+      "includes": {
+        "lib.test": {}
+      }
+    }
+  }
+}

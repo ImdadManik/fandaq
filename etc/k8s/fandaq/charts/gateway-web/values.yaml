@@ -1,0 +1,36 @@
+config:
+  selfUrl: # https://gateway-web.fandaq.dev
+  corsOrigins: # https://fandaq-st-angular
+  globalConfigurationBaseUrl: # http://fandaq-st-gateway-web
+  authServer:
+    authority: # http://fandaq-st-authserver
+    requireHttpsMetadata: # "false"
+    metadataAddress: # https://authserver.fandaq.dev/.well-known/openid-configuration
+    swaggerClientId: # WebGateway_Swagger
+  dotnetEnv: # 
+  redisHost: #
+  rabbitmqHost: #
+  elasticsearchUrl: #
+  AbpLicenseCode: #
+  
+reRoutes:
+  accountService:
+    url: http://fandaq-st-authserver
+  saasService:
+    url: http://saas-st-administration
+  administrationService:
+    url: http://fandaq-st-administration
+  identityService:
+    url: http://fandaq-st-identity
+  productService:
+    url: http://fandaq-st-product
+ingress:
+  host: # gateway-web.fandaq.dev
+  tlsSecret: fandaq-tls
+
+image:
+  repository: mycompanyname/fandaq-gateway-web
+  tag: latest
+  pullPolicy: IfNotPresent
+
+env: {}

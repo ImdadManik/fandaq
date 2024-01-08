@@ -1,0 +1,59 @@
+{
+  "folders": {
+    "items": {
+      "apps": {},
+      "gateways": {},
+      "services": {}
+    }
+  },
+  "modules": {
+    "fandaq": {
+      "path": "fandaq.abpmdl"
+    },
+    "fandaq.AuthServer": {
+      "path": "apps/auth-server/fandaq.AuthServer.abpmdl",
+      "folder": "apps"
+    },
+    "fandaq.Blazor": {
+      "path": "apps/blazor/fandaq.Blazor.abpmdl",
+      "folder": "apps"
+    },
+    "fandaq.PublicWeb": {
+      "path": "apps/public-web/fandaq.PublicWeb.abpmdl",
+      "folder": "apps"
+    },
+    "fandaq.Web": {
+      "path": "apps/web/fandaq.Web.abpmdl",
+      "folder": "apps"
+    },
+    "fandaq.WebGateway": {
+      "path": "gateways/web/fandaq.WebGateway.abpmdl",
+      "folder": "gateways"
+    },
+    "fandaq.PublicWebGateway": {
+      "path": "gateways/web-public/fandaq.PublicWebGateway.abpmdl",
+      "folder": "gateways"
+    },
+    "fandaq.AdministrationService": {
+      "path": "services/administration/fandaq.AdministrationService.abpmdl",
+      "folder": "services"
+    },
+    "fandaq.IdentityService": {
+      "path": "services/identity/fandaq.IdentityService.abpmdl",
+      "folder": "services"
+    },
+    "fandaq.ProductService": {
+      "path": "services/product/fandaq.ProductService.abpmdl",
+      "folder": "services"
+    },
+    "fandaq.SaasService": {
+      "path": "services/saas/fandaq.SaasService.abpmdl",
+      "folder": "services"
+    }
+  },
+  "runProfiles": {
+    "Default": {
+      "path": "etc/run-profiles/Default.abprun.json"
+    }
+  }
+}

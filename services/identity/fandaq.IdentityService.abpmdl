@@ -1,0 +1,58 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "fandaq.IdentityService.HttpApi": {
+      "path": "src/fandaq.IdentityService.HttpApi/fandaq.IdentityService.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "fandaq.IdentityService.Application": {
+      "path": "src/fandaq.IdentityService.Application/fandaq.IdentityService.Application.abppkg",
+      "folder": "src"
+    },
+    "fandaq.IdentityService.Domain": {
+      "path": "src/fandaq.IdentityService.Domain/fandaq.IdentityService.Domain.abppkg",
+      "folder": "src"
+    },
+    "fandaq.IdentityService.Domain.Shared": {
+      "path": "src/fandaq.IdentityService.Domain.Shared/fandaq.IdentityService.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "fandaq.IdentityService.EntityFrameworkCore": {
+      "path": "src/fandaq.IdentityService.EntityFrameworkCore/fandaq.IdentityService.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "fandaq.IdentityService.HttpApi.Client": {
+      "path": "src/fandaq.IdentityService.HttpApi.Client/fandaq.IdentityService.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "fandaq.IdentityService.Application.Contracts": {
+      "path": "src/fandaq.IdentityService.Application.Contracts/fandaq.IdentityService.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "fandaq.IdentityService.HttpApi.Host": {
+      "path": "src/fandaq.IdentityService.HttpApi.Host/fandaq.IdentityService.HttpApi.Host.abppkg",
+      "folder": "src"
+    },
+    "fandaq.IdentityService.TestBase": {
+      "path": "test/fandaq.IdentityService.TestBase/fandaq.IdentityService.TestBase.abppkg",
+      "folder": "test"
+    },
+    "fandaq.IdentityService.Domain.Tests": {
+      "path": "test/fandaq.IdentityService.Domain.Tests/fandaq.IdentityService.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "fandaq.IdentityService.EntityFrameworkCore.Tests": {
+      "path": "test/fandaq.IdentityService.EntityFrameworkCore.Tests/fandaq.IdentityService.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "fandaq.IdentityService.Application.Tests": {
+      "path": "test/fandaq.IdentityService.Application.Tests/fandaq.IdentityService.Application.Tests.abppkg",
+      "folder": "test"
+    }
+  }
+}
